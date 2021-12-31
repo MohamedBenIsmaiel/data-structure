@@ -144,6 +144,10 @@ class List{
 			}
 			return false;
 		}
+
+		void updateData(const char d){
+			Cursor->data = d;
+		}
 };
 
 int main(){
