@@ -60,19 +60,19 @@ class List{
 			Prev = NULL;
 		}
 
-		void setAfter(Node *cursor, int k, char d){
+		void insertAfter(int k, char d){
 			Node *getNode = createNode(k, d);
-			getNode->next = cursor->next;
-			cursor->next = getNode;
+			getNode->next = Cursor->next;
+			Cursor->next = getNode;
 			//move forward
 			advance();	
 		}
 
-		void backWard(Node *point){
+		void backWard(const Node *point){
 			Cursor = point;
 		}
 
-		void setBefore(Node *cursor, int k, char d){
+		void insertBefore(int k, char d){
 			Node *getNode = createNode(k, d);
 			getNode->next = Prev->next;
 			Prev->next = getNode;
@@ -149,13 +149,20 @@ class List{
 			Cursor->data = d;
 		}
 
-		void retriveData(char k, char d)const{
+		void retriveData(int k, char d)const{
 			k = Cursor->k;
 			d = Cursor->data;
 		}
 
-		void retriveKey(char k) const{
+		void retriveKey(int k) const{
 			k = Cursor->k;
+		}
+
+		void insertEnd(int k , char d){
+			if(listIsEmpty()) insertFirst(k, d);
+			else{
+				insertAfter(k, d);
+			}
 		}
 };
 
