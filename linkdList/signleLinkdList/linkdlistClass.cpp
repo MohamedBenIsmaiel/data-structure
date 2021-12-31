@@ -128,7 +128,7 @@ class List{
 			}
 		}
 
-		int listSize(){
+		int listSize() const{
 			int size = 0;
 			toFirst();
 			while(Cursor != NULL){
