@@ -128,7 +128,7 @@ class List{
 			}
 		}
 
-		int listSize() const{
+		int listSize() {
 			int size = 0;
 			toFirst();
 			while(Cursor != NULL){
@@ -147,6 +147,15 @@ class List{
 
 		void updateData(const char d){
 			Cursor->data = d;
+		}
+
+		void retriveData(char k, char d)const{
+			k = Cursor->k;
+			d = Cursor->data;
+		}
+
+		void retriveKey(char k) const{
+			k = Cursor->k;
 		}
 };
 
