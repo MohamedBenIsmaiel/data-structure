@@ -81,10 +81,12 @@ class List{
 		}
 
 		void deleteFirstNode(){
-			Node *q = Head;
-			Head = Head->next;
-			toFirst();	
-			delete q;
+			if(!listIsEmpty){
+				Node *q = Head;
+				Head = Head->next;
+				toFirst();	
+				delete q;
+			}
 		}
 
 		void deleteCurrentNode(){
@@ -161,7 +163,27 @@ class List{
 		void insertEnd(int k , char d){
 			if(listIsEmpty()) insertFirst(k, d);
 			else{
+				toEnd();
 				insertAfter(k, d);
+			}
+		}
+
+		bool isKeyFound(const int k){
+			bool isFound = false;
+			while(!isFound && Cursor != NULL){
+				if(Cursor->k == k){
+					return true;
+				}
+				advance(); // go forward
+			}
+			return false;
+		}
+
+		void traverse(){
+			toFirst();
+			while(Cursor != NULL){
+				cout<<Cursor->data<<endl;
+				advance();
 			}
 		}
 };
